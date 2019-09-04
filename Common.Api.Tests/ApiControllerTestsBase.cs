@@ -1,18 +1,13 @@
-﻿using Chimera.Authentication.Api.Tests.Helpers;
-using Chimera.Authentication.Entities;
-using Chimera.Authentication.Identities;
-using Falck.Pulsar.Core.Identities;
+﻿using Common.Api.Tests.Helpers;
+using Common.Core.Identities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Collections.Generic;
-using System.Security.Claims;
-using System.Text;
 using ZenProgramming.Chakra.Core.Data;
 using ZenProgramming.Chakra.Core.Data.Mockups;
 using ZenProgramming.Chakra.Core.Data.Mockups.Scenarios;
 
-namespace Chimera.Authentication.Api.Tests
+namespace Common.Api.Tests
 {
     /// <summary>
     /// Base asbtract class for test API controller

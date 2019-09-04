@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Chimera.Catalog.Mocks
+﻿namespace Chimera.Catalog.Mocks
 {
     public class Class1
     {

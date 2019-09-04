@@ -1,11 +1,10 @@
 using Chimera.Authentication.Api.Controllers;
 using Chimera.Authentication.Api.Models;
 using Chimera.Authentication.Api.Models.Requests;
-using Chimera.Authentication.Api.Tests.Helpers;
-using Chimera.Authentication.Identities;
 using Chimera.Authentication.Mocks.Common;
+using Common.Api.Tests;
+using Common.Core.Identities;
 using Microsoft.AspNetCore.Mvc;
-using System;
 using System.Linq;
 using Xunit;
 

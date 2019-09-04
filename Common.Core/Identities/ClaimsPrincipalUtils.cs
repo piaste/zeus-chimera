@@ -1,8 +1,7 @@
-﻿using Chimera.Authentication.Identities;
-using System;
+﻿using System;
 using System.Security.Claims;
 
-namespace Falck.Pulsar.Core.Identities
+namespace Common.Core.Identities
 {
     /// <summary>
     /// Utilities for Claims Principal

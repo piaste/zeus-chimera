@@ -4,10 +4,6 @@ using Chimera.Authentication.Entities;
 using Chimera.Authentication.ServiceLayers;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using ZenProgramming.Chakra.Core.Data;
 
 namespace Chimera.Authentication.Api.Controllers

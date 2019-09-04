@@ -1,5 +1,4 @@
 ﻿using Chimera.Authentication.Entities;
-using System;
 using System.Collections.Generic;
 using ZenProgramming.Chakra.Core.Data.Mockups.Scenarios;
 

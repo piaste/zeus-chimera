@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Chimera.Catalog
+﻿namespace Chimera.Catalog
 {
     public class Class1
     {

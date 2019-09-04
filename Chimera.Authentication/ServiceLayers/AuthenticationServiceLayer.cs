@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Chimera.Authentication.Data.Repositories;
+﻿using Chimera.Authentication.Data.Repositories;
 using Chimera.Authentication.Entities;
 using ZenProgramming.Chakra.Core.Data;
 using ZenProgramming.Chakra.Core.Utilities.Security;

@@ -1,8 +1,5 @@
-﻿using Chimera.Authentication.Identities;
-using System;
-using System.Collections.Generic;
+﻿using Common.Core.Identities;
 using System.ComponentModel.DataAnnotations;
-using System.Text;
 using ZenProgramming.Chakra.Core.Entities;
 
 namespace Chimera.Authentication.Entities
