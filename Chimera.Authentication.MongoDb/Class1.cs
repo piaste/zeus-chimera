@@ -2,7 +2,7 @@
 
 namespace Chimera.Authentication.MongoDb
 {
-    public class Class1
+    public class User
     {
     }
 }
