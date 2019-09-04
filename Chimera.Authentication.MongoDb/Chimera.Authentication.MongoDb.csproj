@@ -8,4 +8,8 @@
     <ProjectReference Include="..\Chimera.Authentication\Chimera.Authentication.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Chakra.Core.MongoDb" Version="2.0.11" />
+  </ItemGroup>
+
 </Project>
