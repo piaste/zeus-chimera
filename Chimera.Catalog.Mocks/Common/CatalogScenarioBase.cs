@@ -7,10 +7,13 @@ namespace Chimera.Catalog.Mocks.Common
     {
         public IList<Category> Categories { get; set; }
 
+        public IList<Product> Products { get; set; }
+
         public CatalogScenarioBase()
         {
             //Inizializzazione
             Categories = new List<Category>();
+            Products = new List<Product>();
         }
 
         public abstract void InitializeEntities();
