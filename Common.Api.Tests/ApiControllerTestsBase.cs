@@ -95,8 +95,6 @@ namespace Common.Api.Tests
 
             //Recupero l'utente da usare nel testa
             var defaultUserIdentity = GetIdentity();
-            if (defaultUserIdentity == null)
-                throw new InvalidProgramException("User for identity is invalid");
 
             //Inizializzazione del controller context e impostazione dell'identity
             UpdateIdentity(defaultUserIdentity);
@@ -108,9 +106,6 @@ namespace Common.Api.Tests
         /// <param name="user">User instance</param>
         protected void UpdateIdentity(IGenericIdentity user)
         {
-            //Validazione argomenti
-            if (user == null) throw new ArgumentNullException(nameof(user));
-
             //impostazione local dell'identità
             CurrentIdentityUser = user;
 
@@ -120,12 +115,12 @@ namespace Common.Api.Tests
             Controller.ControllerContext = new ControllerContext
             {
                 //HTTP context default
-                HttpContext = new DefaultHttpContext
-                {
-                    //Imposto l'identity generata
-                    User = identity
-                }
+                HttpContext = new DefaultHttpContext()
             };
+
+            //Se ho una identity, la imposto
+            if (identity != null)
+                Controller.ControllerContext.HttpContext.User = identity;
         }
 
         /// <summary>

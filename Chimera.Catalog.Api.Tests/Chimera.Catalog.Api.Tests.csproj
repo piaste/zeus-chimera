@@ -18,4 +18,11 @@
     <PackageReference Include="xunit.runner.visualstudio" Version="2.4.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Chimera.Catalog.Api\Chimera.Catalog.Api.csproj" />
+    <ProjectReference Include="..\Chimera.Catalog.Mocks\Chimera.Catalog.Mocks.csproj" />
+    <ProjectReference Include="..\Chimera.Catalog\Chimera.Catalog.csproj" />
+    <ProjectReference Include="..\Common.Api.Tests\Common.Api.Tests.csproj" />
+  </ItemGroup>
+
 </Project>

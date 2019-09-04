@@ -26,23 +26,25 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataProviders", "DataProvid
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Catalog", "Catalog", "{808B5669-81FF-45A4-AD3B-B89EA5A208A6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chimera.Catalog", "Chimera.Catalog\Chimera.Catalog.csproj", "{9C4F19BC-2A4C-4A15-856A-AA20BF1D12E2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Chimera.Catalog", "Chimera.Catalog\Chimera.Catalog.csproj", "{9C4F19BC-2A4C-4A15-856A-AA20BF1D12E2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chimera.Catalog.Mocks", "Chimera.Catalog.Mocks\Chimera.Catalog.Mocks.csproj", "{E6493D00-BF49-4386-B55A-595617AA503A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Chimera.Catalog.Mocks", "Chimera.Catalog.Mocks\Chimera.Catalog.Mocks.csproj", "{E6493D00-BF49-4386-B55A-595617AA503A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chimera.Catalog.MongoDb", "Chimera.Catalog.MongoDb\Chimera.Catalog.MongoDb.csproj", "{BBAB4DD6-749B-4755-BC10-ACBF39982169}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Chimera.Catalog.MongoDb", "Chimera.Catalog.MongoDb\Chimera.Catalog.MongoDb.csproj", "{BBAB4DD6-749B-4755-BC10-ACBF39982169}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataProviders", "DataProviders", "{6EDFD26C-96C1-41FC-A724-062E790F7FE2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chimera.Catalog.Api", "Chimera.Catalog.Api\Chimera.Catalog.Api.csproj", "{229F94ED-587B-4E44-A9F3-FBC1B96FA2B9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Chimera.Catalog.Api", "Chimera.Catalog.Api\Chimera.Catalog.Api.csproj", "{229F94ED-587B-4E44-A9F3-FBC1B96FA2B9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chimera.Catalog.Api.Tests", "Chimera.Catalog.Api.Tests\Chimera.Catalog.Api.Tests.csproj", "{EA30618F-D30F-434C-9473-9A1A67D03456}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Chimera.Catalog.Api.Tests", "Chimera.Catalog.Api.Tests\Chimera.Catalog.Api.Tests.csproj", "{EA30618F-D30F-434C-9473-9A1A67D03456}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Framework", "Framework", "{793F6BA9-ACF2-4B29-89F7-0A2A11156065}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common.Api.Tests", "Common.Api.Tests\Common.Api.Tests.csproj", "{3DC09E5E-3ECA-4827-A6A1-FCE457E65F43}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common.Api.Tests", "Common.Api.Tests\Common.Api.Tests.csproj", "{3DC09E5E-3ECA-4827-A6A1-FCE457E65F43}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common.Core", "Common.Core\Common.Core.csproj", "{BBCD5246-B354-482A-B0CF-29AA09282CE9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common.Core", "Common.Core\Common.Core.csproj", "{BBCD5246-B354-482A-B0CF-29AA09282CE9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Offers", "Offers", "{C05624A0-12F2-442C-A886-2E8379700E29}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
