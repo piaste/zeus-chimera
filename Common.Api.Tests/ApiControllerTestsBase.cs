@@ -109,9 +109,6 @@ namespace Common.Api.Tests
             //impostazione local dell'identità
             CurrentIdentityUser = user;
 
-            //Generazione del principal
-            var identity = ClaimsPrincipalUtils.GeneratesClaimsPrincipal("Mock", CurrentIdentityUser);
-
             Controller.ControllerContext = new ControllerContext
             {
                 //HTTP context default
@@ -119,8 +116,15 @@ namespace Common.Api.Tests
             };
 
             //Se ho una identity, la imposto
-            if (identity != null)
+            if (user != null)
+            {
+                //Generazione del principal
+                var identity = ClaimsPrincipalUtils.GeneratesClaimsPrincipal("Mock", CurrentIdentityUser);
+
+                //inizializzo nel controller
                 Controller.ControllerContext.HttpContext.User = identity;
+            }
+                
         }
 
         /// <summary>

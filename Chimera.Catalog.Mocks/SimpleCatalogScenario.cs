@@ -13,7 +13,12 @@ namespace Chimera.Catalog.Mocks.Common
                 Code = "BOO",
                 Name = "Books"
             };
-            this.Push(e => e.Categories, books);
+            var pens = new Category
+            {
+                Code = "PEN",
+                Name = "Pens"
+            };
+            this.Push(e => e.Categories, books, pens);
         }
     }
 }
