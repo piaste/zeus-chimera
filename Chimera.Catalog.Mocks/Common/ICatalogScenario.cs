@@ -7,5 +7,7 @@ namespace Chimera.Catalog.Mocks
     public interface ICatalogScenario: IScenario
     {
         IList<Category> Categories { get; set; }
+
+        IList<Product> Products { get; set; }
     }
 }
