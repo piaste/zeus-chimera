@@ -13,11 +13,4 @@
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Chimera.Authentication.EntityFramework\Chimera.Authentication.EntityFramework.csproj" />
-    <ProjectReference Include="..\Chimera.Authentication.Mocks\Chimera.Authentication.Mocks.csproj" />
-    <ProjectReference Include="..\Chimera.Authentication.MongoDb\Chimera.Authentication.MongoDb.csproj" />
-    <ProjectReference Include="..\Chimera.Authentication\Chimera.Authentication.csproj" />
-  </ItemGroup>
-
 </Project>
