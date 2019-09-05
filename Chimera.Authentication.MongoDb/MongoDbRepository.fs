@@ -15,9 +15,9 @@ open ZenProgramming.Chakra.Core.Data
 open MongoDB.Bson.IO
 
 
-/// <summary>
 /// Stores an entity inside a MongoDb database.
-/// <summary>
+///
+/// By default the collection name is the same as the type name.
 type MongoDbRepository<'TEntity  
                         when 'TEntity : (new : unit -> 'TEntity)
                          and 'TEntity : not struct 
@@ -25,30 +25,36 @@ type MongoDbRepository<'TEntity
                          and 'TEntity : null
                     >
 
-           /// <summary> Internal constructor </summary>
-           /// <param name="dataSession">A data session to an existing MongoDB database</param>
-           /// <param name="validationRules">Apply a function to the entity to verify any MongoDb-specific validation rules (eg. data size limits)</param>
-           /// <param name="collectionName">Customize the collection name. The default is the entity type's name.</param>
            internal ( dataSession : IMongoDbDataSession                    
-                    , validationRules : 'TEntity -> ValidationResult seq
+                    , ?validationRules : 'TEntity -> ValidationResult seq
                     , ?collectionName : string
                     ) = 
         
     
 
-    let db = dataSession.Database
+    
+    // If not specified, validation always passes
+    let validationRules = validationRules |> Option.defaultValue (fun _ -> Seq.empty)
 
-    /// If not specified, catalog name is the type name
+    // If not specified, catalog name is the type name
     let collectionName = collectionName |> Option.defaultValue (typeof<'TEntity>.Name)
     
+    // Open the database and collection
+    let db = dataSession.Database    
     let entities () = db.GetCollection(collectionName)
         
-    /// TODO : test the fake transaction implementation
+    // TODO : test the fake transaction implementation
     let transaction : Transaction option = None
         
-    /// Cast to IRepository
+    
+
+    /// Casts this to IRepository
     member this.AsRepository = (this :> IRepository<'TEntity>)
 
+
+
+
+    // Implement the repo pattern
     interface IRepository<'TEntity> with
         
         member this.Count(filterExpression) = 
@@ -58,8 +64,9 @@ type MongoDbRepository<'TEntity
         member this.Delete(entity) = 
             entities().DeleteOne(fun (e : 'TEntity) -> entity.GetId() = e.GetId())
             |> ignore
-
+                    
         member this.Dispose() = 
+            // By default rolls back transaction if not committed
             transaction |> Option.iter (fun t -> (t :> IDataTransaction).Rollback())
 
         member this.Fetch(filterExpression, startRowIndex, maximumRows, sortExpression, isDescending) = 
@@ -90,8 +97,11 @@ type MongoDbRepository<'TEntity
 
         member this.Validate(entity) = 
             let mutable results = ResizeArray<_>()
+
+            /// Apply the entity's own rules
             let success = Validator.TryValidateObject(entity, ValidationContext entity, results)
 
+            /// Add the repo-specific rules
             results.AddRange(validationRules(entity))
 
             results :> IList<_>
