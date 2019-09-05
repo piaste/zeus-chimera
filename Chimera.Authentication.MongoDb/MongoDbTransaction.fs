@@ -1,4 +1,4 @@
-﻿/// DRAFT: implementazione delle transazioni in software
+﻿/// WORK IN PROGRESS: implementazione delle transazioni in software
 module internal Chimera.Authentication.MongoDb.Transactions
 
 open MongoDB.Driver
@@ -11,9 +11,7 @@ type Operation<'T when 'T :> IEntity > =
     | Update of oldEntity: 'T * newEntity: 'T
     | Delete of oldEntity: 'T
     | Commit
-
-
-
+       
 let cast<'T1, 'T2 when 'T1 :> IEntity and 'T2 :> IEntity> (x : Operation<'T1>)= 
     match x with
     | Create e -> Create (box e :?> 'T2)
@@ -31,15 +29,19 @@ let show =
 
 let showVal (Existing e | Deleted e) = e
 
+/// Cannot use `obj` as a map key
 let getId (x : #IEntity) = x.GetId().ToString()
 
-let findLatestUpdate filter =     
-    Seq.choose show
-    >> Seq.filter (showVal >> filter)
-    >> Seq.mapi (fun i e -> (i, e))
-    >> Seq.groupBy (snd >> showVal >> getId)
-    >> Map
-    >> Map.map (fun _ v -> Seq.maxBy fst v |> snd)
+/// For a given filter, returns the most recent update of every matching entity that was 
+/// affected by the update
+let findLatestUpdate filter updates =     
+    updates 
+    |> Seq.choose show
+    |> Seq.filter (showVal >> filter)
+    |> Seq.mapi (fun i e -> (i, e))
+    |> Seq.groupBy (snd >> showVal >> getId)
+    |> Map
+    |> Map.map (fun _ v -> Seq.maxBy fst v |> snd)
 
 let rec rollback (collection : IMongoCollection<'T>) find ops = 
     match ops with
