@@ -16,7 +16,6 @@ using ZenProgramming.Chakra.Core.Data;
 using ZenProgramming.Chakra.Core.Data.Mockups;
 using ZenProgramming.Chakra.Core.Data.Mockups.Scenarios;
 using ZenProgramming.Chakra.Core.Diagnostic;
-using ZenProgramming.Chimera.Common.Contracts.DependencyInjectors;
 using Common.Providers.MongoDb;
 using Chimera.Catalog.MongoDb;
 

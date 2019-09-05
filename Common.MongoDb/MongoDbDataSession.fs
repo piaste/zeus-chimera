@@ -3,7 +3,7 @@ namespace Common.Providers.MongoDb
 open ZenProgramming.Chakra.Core.Data
 open MongoDB.Driver
 open ZenProgramming.Chakra.Core.Data.Repositories.Helpers
-open ZenProgramming.Chimera.Common.Contracts.DependencyInjectors
+open Common.Core.DependencyInjectors
 
 type IMongoDbDataSession =
     inherit IDataSession
