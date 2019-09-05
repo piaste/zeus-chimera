@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Chimera.Authentication.Mock
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Chimera.Authentication.EntityFramework", "Chimera.Authentication.EntityFramework\Chimera.Authentication.EntityFramework.csproj", "{22EF7940-17FD-47E3-9549-3E1065C151E3}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Chimera.Authentication.MongoDb", "Chimera.Authentication.MongoDb\Chimera.Authentication.MongoDb.csproj", "{A308A8A4-816C-49FC-8C72-A869DA31A1F3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Chimera.Authentication.MongoDb", "Chimera.Authentication.MongoDb\Chimera.Authentication.MongoDb.fsproj", "{A308A8A4-816C-49FC-8C72-A869DA31A1F3}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Chimera.Authentication.Api.Tests", "Chimera.Authentication.Api.Tests\Chimera.Authentication.Api.Tests.csproj", "{881248E2-025B-4D26-BC19-24E55B904DC2}"
 EndProject
