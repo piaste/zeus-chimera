@@ -44,7 +44,7 @@ namespace Chimera.Catalog.Mocks.Common
                 Description = Lorem,
                 CategoryId = pens.Id
             };
-            this.Push(e => e.Products, lord);
+            this.Push(e => e.Products, lord, rob, bic);
         }
     }
 }

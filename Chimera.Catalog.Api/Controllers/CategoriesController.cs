@@ -1,4 +1,5 @@
-﻿using Chimera.Catalog.Api.Models;
+﻿using Chimera.Catalog.Api.Helpers;
+using Chimera.Catalog.Api.Models;
 using Chimera.Catalog.Api.Models.Requests;
 using Chimera.Catalog.Api.Models.Responses;
 using Chimera.Catalog.Entities;
@@ -11,6 +12,7 @@ using ZenProgramming.Chakra.Core.Extensions;
 
 namespace Chimera.Catalog.Api.Controllers
 {
+    [Route("api/Categories")]
     public class CategoriesController : ApiControllerBase
     {
         /// <summary>
@@ -53,7 +55,7 @@ namespace Chimera.Catalog.Api.Controllers
 
             //Generazione dei contratti
             var contracts = new List<CategoryContract>();
-            entities.Each(e => contracts.Add(new CategoryContract { Code = e.Code, Name = e.Name }));
+            entities.Each(e => contracts.Add(ContractUtils.GenerateContract(e)));
             return Ok(contracts);
         }
     }

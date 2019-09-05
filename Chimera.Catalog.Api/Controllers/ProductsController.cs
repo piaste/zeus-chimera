@@ -1,14 +1,17 @@
-﻿using Chimera.Catalog.Api.Models;
+﻿using Chimera.Catalog.Api.Helpers;
+using Chimera.Catalog.Api.Models;
 using Chimera.Catalog.Api.Models.Requests;
 using Chimera.Catalog.Api.Models.Responses;
 using Chimera.Catalog.Entities;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using ZenProgramming.Chakra.Core.Extensions;
 
 namespace Chimera.Catalog.Api.Controllers
 {
+    [Route("api/Products")]
     public class ProductsController : ApiControllerBase
     {
         /// <summary>
@@ -44,12 +47,14 @@ namespace Chimera.Catalog.Api.Controllers
                 return BadRequest();
 
             //Invoke del layer applicativo
-            IList<Product> entities = CatalogLayer.FetchProducts(
+            IList<Product> products = CatalogLayer.FetchProducts(
                 request.StartRowIndex, request.MaximumRows);
+            var categoryIds = products.Select(e => e.CategoryId).ToArray();
+            IList<Category> categories = CatalogLayer.FetchCategoriesByIds(categoryIds);
 
             //Generazione dei contratti
             var contracts = new List<ProductContract>();
-            entities.Each(e => contracts.Add(new ProductContract { Code = e.Code, Name = e.Name }));
+            products.Each(e => contracts.Add(ContractUtils.GenerateContract(e, categories)));
             return Ok(contracts);
         }
     }

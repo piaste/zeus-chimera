@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using Chimera.Catalog.Entities;
 using ZenProgramming.Chakra.Core.Data;
@@ -53,6 +54,19 @@ namespace Chimera.Catalog.ServiceLayers
                 var result = _CategoryRepository.Fetch(null, 
                     startRowIndex, maximumRows, 
                     e => e.Name, false);
+                t.Commit();
+                return result;
+            }
+        }
+
+        public IList<Category> FetchCategoriesByIds(string[] ids)
+        {
+            //Apertura transazione
+            using (var t = DataSession.BeginTransaction())
+            {
+                //Estrazione risultato e commit
+                var result = _CategoryRepository.Fetch(
+                    e => ids.Contains(e.Id));
                 t.Commit();
                 return result;
             }

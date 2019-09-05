@@ -6,6 +6,7 @@ using Chimera.Catalog.Mocks.Common;
 using Common.Api.Tests;
 using Common.Core.Identities;
 using System.Collections.Generic;
+using System.Linq;
 using Xunit;
 
 namespace Chimera.Catalog.Api.Tests
@@ -45,6 +46,10 @@ namespace Chimera.Catalog.Api.Tests
             Assert.NotNull(parsed.Response);
             Assert.NotNull(parsed.Data);
             Assert.Equal(Scenario.Products.Count, parsed.Data.Count);
+            Assert.True(parsed.Data.All(e => e.Code.Length > 0));
+            Assert.True(parsed.Data.All(e => e.Name.Length > 0));
+            Assert.True(parsed.Data.All(e => e.Description.Length > 0));
+            Assert.True(parsed.Data.All(e => e.Category != null));
         }
     }
 }
