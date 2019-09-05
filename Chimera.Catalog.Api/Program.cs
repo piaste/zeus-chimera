@@ -10,6 +10,8 @@ using ZenProgramming.Chakra.Core.Configurations.Utils;
 using ZenProgramming.Chakra.Core.Data;
 using ZenProgramming.Chakra.Core.Data.Mockups;
 using ZenProgramming.Chakra.Core.Data.Mockups.Scenarios;
+using Common.Providers.MongoDb;
+using Chimera.Catalog.MongoDb;
 
 namespace Chimera.Catalog.Api
 {
@@ -23,12 +25,20 @@ namespace Chimera.Catalog.Api
                 { "Simple", () => ScenarioFactory.Initialize(new SimpleCatalogScenario()) },
                 { null, () => { } }
             });
-
+            
             //Select provider for data storage
             SettingsUtils.Switch(ConfigurationFactory<CatalogSettings>.Instance.Storage.ProviderName, new Dictionary<string, Action>
             {
                 { "Mock", SessionFactory.RegisterDefaultDataSession<MockupDataSession> },
-                //{ "Mongo", SessionFactory.RegisterDefaultDataSession<MongoDbDataSession<CatalogMongoOptions>> }
+                { "Mongo", () => {
+
+                    var options = Initialization.ReadOptions(ConfigurationFactory<CatalogSettings>.Instance);
+                    
+                    // NInjectUtils..RegisterSingleton(options);
+
+                    SessionFactory.RegisterDefaultDataSession<MongoDbDataSession>();
+                    }
+                }
             });
 
             //Avvio pipeline ASP.NET

@@ -12,7 +12,10 @@ type IMongoDbDataSession =
 type MongoDbDataSession(options : MongoDbOptions) = 
 
     /// Public parameterless constructor for the DI framework
-    new() = new MongoDbDataSession(MongoDbOptions.Default)
+    new() = 
+        let options = failwith "Ninject missing"//NInjectUtils.Resolve<_>
+        
+        new MongoDbDataSession(options)
 
     /// Public options getter/setter for the DI framework
     member val Options = options

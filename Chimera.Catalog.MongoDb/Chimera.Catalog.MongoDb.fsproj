@@ -13,6 +13,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Chimera.Catalog\Chimera.Catalog.csproj" />
+    <ProjectReference Include="..\Common.Core\Common.Core.csproj" />
     <ProjectReference Include="..\Common.MongoDb\Common.Providers.MongoDb.fsproj" />
   </ItemGroup>
 
@@ -20,7 +21,9 @@
     <PackageReference Include="Chakra.Core.MongoDb" Version="2.0.11" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MongoDbUserRepository.fs" />    
+    <Compile Include="Initialization.fs" />
+    <Compile Include="MongoDbCategoryRepository.fs" />
+    <Compile Include="MongoDbProductRepository.fs" />    
   </ItemGroup>
 
 </Project>

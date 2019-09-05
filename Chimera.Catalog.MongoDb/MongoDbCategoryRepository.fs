@@ -4,6 +4,7 @@ open Common.Providers.MongoDb
 open Chimera.Catalog.Entities
 open System.ComponentModel.DataAnnotations
 open ZenProgramming.Chimera.Catalog.Data.Repositories
+open System.Collections.Generic
 
 /// <summary> Stores Categorys in a MongoDB database</summary>
 /// <param name="db">The MongoDB Database where this should be saved</param>

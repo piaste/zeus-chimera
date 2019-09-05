@@ -15,8 +15,9 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Chimera.Catalog.Mocks\Chimera.Catalog.Mocks.csproj" />
-    <ProjectReference Include="..\Chimera.Catalog.MongoDb\Chimera.Catalog.MongoDb.csproj" />
+    <ProjectReference Include="..\Chimera.Catalog.MongoDb\Chimera.Catalog.MongoDb.fsproj" />
     <ProjectReference Include="..\Chimera.Catalog\Chimera.Catalog.csproj" />
+    <ProjectReference Include="..\Common.MongoDb\Common.Providers.MongoDb.fsproj" />
   </ItemGroup>
 
 </Project>
