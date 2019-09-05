@@ -11,8 +11,4 @@
     <ProjectReference Include="..\Chimera.Catalog\Chimera.Catalog.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Data\Repositories\" />
-  </ItemGroup>
-
 </Project>

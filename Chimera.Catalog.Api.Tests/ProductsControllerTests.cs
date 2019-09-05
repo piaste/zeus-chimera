@@ -38,7 +38,7 @@ namespace Chimera.Catalog.Api.Tests
             //Estrazione degli elemnti
             var request = new FetchPagedRequest { StartRowIndex = 0, MaximumRows = int.MaxValue };
             var response = Controller.Fetch(request);
-            var parsed = ParseExpectedOk<List<CategoryContract>>(response);
+            var parsed = ParseExpectedOk<List<ProductContract>>(response);
 
             //Devo avere almeno un elemento
             Assert.NotNull(parsed);

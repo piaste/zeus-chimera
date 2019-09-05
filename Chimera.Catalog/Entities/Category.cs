@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using ZenProgramming.Chakra.Core.Entities;
+﻿using ZenProgramming.Chakra.Core.Entities;
 
 namespace Chimera.Catalog.Entities
 {

@@ -13,4 +13,10 @@
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Chimera.Catalog.Mocks\Chimera.Catalog.Mocks.csproj" />
+    <ProjectReference Include="..\Chimera.Catalog.MongoDb\Chimera.Catalog.MongoDb.csproj" />
+    <ProjectReference Include="..\Chimera.Catalog\Chimera.Catalog.csproj" />
+  </ItemGroup>
+
 </Project>

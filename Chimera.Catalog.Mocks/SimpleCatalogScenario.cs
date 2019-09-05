@@ -1,6 +1,5 @@
 ﻿using Chimera.Catalog.Entities;
 using ZenProgramming.Chakra.Core.Data.Mockups.Scenarios.Extensions;
-using ZenProgramming.Chakra.Core.Utilities.Security;
 
 namespace Chimera.Catalog.Mocks.Common
 {

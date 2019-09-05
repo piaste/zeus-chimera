@@ -1,14 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace Chimera.Catalog.Api.Models.Requests
 {
     public class FetchPagedRequest
     {
-        public int StartRowIndex { get; set; }
+        [Required]
+        [Range(0, int.MaxValue)]
+        public int? StartRowIndex { get; set; }
 
-        public int MaximumRows { get; set; }
+        [Required]
+        [Range(0, 100)]
+        public int? MaximumRows { get; set; }
     }
 }
