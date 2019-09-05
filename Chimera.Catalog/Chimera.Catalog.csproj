@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <PackageReference Include="Chakra.Core" Version="2.0.13" />
+    <PackageReference Include="Chakra.Core.Configurations" Version="2.0.13" />
   </ItemGroup>
 
 </Project>
