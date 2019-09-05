@@ -43,7 +43,7 @@ namespace Chimera.Authentication.Api.Controllers
                 FirstName = user.FirstName, 
                 LastName = user.LastName, 
                 UserName = user.UserName, 
-                IsAdmnistrator = user.IsAdministrator, 
+                IsAdministrator = user.IsAdministrator, 
                 Email = user.Email              
             };
 

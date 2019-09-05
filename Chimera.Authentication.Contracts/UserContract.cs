@@ -8,7 +8,7 @@
 
         public string UserName { get; set; }
 
-        public bool IsAdmnistrator { get; set; }
+        public bool IsAdministrator { get; set; }
 
         public string Email { get; set; }
     }
