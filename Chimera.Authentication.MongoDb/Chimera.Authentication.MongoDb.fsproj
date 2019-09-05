@@ -20,7 +20,7 @@
     <Compile Include="MongoDbOptions.fs" />
     <Compile Include="MongoDbDataSession.fs" />
     <Compile Include="MongoDbRepository.fs" />
-    <Compile Include="Repositories\UserRepository.fs" />    
+    <Compile Include="Repositories\MongoDbUserRepository.fs" />    
   </ItemGroup>
 
 </Project>
