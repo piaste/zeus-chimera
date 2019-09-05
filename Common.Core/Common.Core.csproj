@@ -7,12 +7,4 @@
     <AssemblyVersion>1.0.4</AssemblyVersion>
   </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Chakra.Core" Version="2.0.13" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\Common.Core\Common.Core.csproj" />
-  </ItemGroup>
-
 </Project>

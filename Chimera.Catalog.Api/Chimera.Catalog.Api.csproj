@@ -14,10 +14,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Chimera.Authentication.EntityFramework\Chimera.Authentication.EntityFramework.csproj" />
-    <ProjectReference Include="..\Chimera.Authentication.Mocks\Chimera.Authentication.Mocks.csproj" />
-    <ProjectReference Include="..\Chimera.Authentication.MongoDb\Chimera.Authentication.MongoDb.fsproj" />
-    <ProjectReference Include="..\Chimera.Authentication\Chimera.Authentication.csproj" />
+    <ProjectReference Include="..\Chimera.Catalog.Mocks\Chimera.Catalog.Mocks.csproj" />
+    <ProjectReference Include="..\Chimera.Catalog.MongoDb\Chimera.Catalog.MongoDb.csproj" />
+    <ProjectReference Include="..\Chimera.Catalog\Chimera.Catalog.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,18 +1,13 @@
-﻿using Chimera.Authentication.Api.Tests.Helpers;
-using Chimera.Authentication.Entities;
-using Chimera.Authentication.Identities;
-using Falck.Pulsar.Core.Identities;
+﻿using Common.Api.Tests.Helpers;
+using Common.Core.Identities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Collections.Generic;
-using System.Security.Claims;
-using System.Text;
 using ZenProgramming.Chakra.Core.Data;
 using ZenProgramming.Chakra.Core.Data.Mockups;
 using ZenProgramming.Chakra.Core.Data.Mockups.Scenarios;
 
-namespace Chimera.Authentication.Api.Tests
+namespace Common.Api.Tests
 {
     /// <summary>
     /// Base asbtract class for test API controller
@@ -100,8 +95,6 @@ namespace Chimera.Authentication.Api.Tests
 
             //Recupero l'utente da usare nel testa
             var defaultUserIdentity = GetIdentity();
-            if (defaultUserIdentity == null)
-                throw new InvalidProgramException("User for identity is invalid");
 
             //Inizializzazione del controller context e impostazione dell'identity
             UpdateIdentity(defaultUserIdentity);
@@ -113,24 +106,25 @@ namespace Chimera.Authentication.Api.Tests
         /// <param name="user">User instance</param>
         protected void UpdateIdentity(IGenericIdentity user)
         {
-            //Validazione argomenti
-            if (user == null) throw new ArgumentNullException(nameof(user));
-
             //impostazione local dell'identità
             CurrentIdentityUser = user;
-
-            //Generazione del principal
-            var identity = ClaimsPrincipalUtils.GeneratesClaimsPrincipal("Mock", CurrentIdentityUser);
 
             Controller.ControllerContext = new ControllerContext
             {
                 //HTTP context default
-                HttpContext = new DefaultHttpContext
-                {
-                    //Imposto l'identity generata
-                    User = identity
-                }
+                HttpContext = new DefaultHttpContext()
             };
+
+            //Se ho una identity, la imposto
+            if (user != null)
+            {
+                //Generazione del principal
+                var identity = ClaimsPrincipalUtils.GeneratesClaimsPrincipal("Mock", CurrentIdentityUser);
+
+                //inizializzo nel controller
+                Controller.ControllerContext.HttpContext.User = identity;
+            }
+                
         }
 
         /// <summary>

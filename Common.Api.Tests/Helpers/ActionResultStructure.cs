@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace Chimera.Authentication.Api.Tests.Helpers
+namespace Common.Api.Tests.Helpers
 {
     /// <summary>
     /// Structure to hold action result response

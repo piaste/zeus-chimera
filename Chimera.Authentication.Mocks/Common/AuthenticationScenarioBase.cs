@@ -1,7 +1,5 @@
 ﻿using Chimera.Authentication.Entities;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Chimera.Authentication.Mocks.Common
 {
