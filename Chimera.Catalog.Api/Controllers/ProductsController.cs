@@ -1,8 +1,8 @@
 ﻿using Chimera.Catalog.Api.Helpers;
 using Chimera.Catalog.Api.Models;
-using Chimera.Catalog.Api.Models.Requests;
-using Chimera.Catalog.Api.Models.Responses;
 using Chimera.Catalog.Entities;
+using Common.Contracts.Requests;
+using Common.Contracts.Responses;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;

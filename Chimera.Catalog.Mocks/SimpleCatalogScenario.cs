@@ -1,4 +1,5 @@
-﻿using Chimera.Catalog.Entities;
+﻿using Chimera.Authentication.Contracts;
+using Chimera.Catalog.Entities;
 using ZenProgramming.Chakra.Core.Data.Mockups.Scenarios.Extensions;
 
 namespace Chimera.Catalog.Mocks.Common
@@ -11,6 +12,16 @@ namespace Chimera.Catalog.Mocks.Common
 
         public override void InitializeEntities()
         {
+            var admin = new UserContract
+            {
+                UserName = "mario.rossi", 
+                FirstName = "Mario", 
+                LastName = "Rossi", 
+                Email = "mario@rossi.it", 
+                IsAdministrator = true
+            };
+            Users.Add(admin);
+
             var books = new Category
             {
                 Code = "BOO",

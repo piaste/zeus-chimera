@@ -1,4 +1,4 @@
-﻿namespace Chimera.Catalog.Api.Models.Responses
+﻿namespace Common.Contracts.Responses
 {
     public class IntegerResponse
     {

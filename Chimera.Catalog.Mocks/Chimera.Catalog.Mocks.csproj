@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Chimera.Authentication.Clients\Chimera.Authentication.Clients.csproj" />
     <ProjectReference Include="..\Chimera.Catalog\Chimera.Catalog.csproj" />
   </ItemGroup>
 

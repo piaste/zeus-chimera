@@ -1,4 +1,5 @@
 ﻿using Common.Api.Tests.Helpers;
+using Common.Contracts.Identities;
 using Common.Core.Identities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;

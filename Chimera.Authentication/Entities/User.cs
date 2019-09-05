@@ -1,4 +1,4 @@
-﻿using Common.Core.Identities;
+﻿using Common.Contracts.Identities;
 using System.ComponentModel.DataAnnotations;
 using ZenProgramming.Chakra.Core.Entities;
 

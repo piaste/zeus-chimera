@@ -1,10 +1,10 @@
 using Chimera.Catalog.Api.Controllers;
 using Chimera.Catalog.Api.Models;
-using Chimera.Catalog.Api.Models.Requests;
-using Chimera.Catalog.Api.Models.Responses;
 using Chimera.Catalog.Mocks.Common;
 using Common.Api.Tests;
-using Common.Core.Identities;
+using Common.Contracts.Identities;
+using Common.Contracts.Requests;
+using Common.Contracts.Responses;
 using System.Collections.Generic;
 using System.Linq;
 using Xunit;
