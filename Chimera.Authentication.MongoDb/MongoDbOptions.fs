@@ -2,6 +2,7 @@
 
 open System
 
+[<CLIMutable>]
 type MongoDbOptions = {
 
     Username: string
