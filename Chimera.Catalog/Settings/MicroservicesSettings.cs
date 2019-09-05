@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Chimera.Catalog.Settings
+﻿namespace Chimera.Catalog.Settings
 {
     public class MicroservicesSettings
     {

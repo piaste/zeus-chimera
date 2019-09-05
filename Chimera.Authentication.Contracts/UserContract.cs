@@ -1,4 +1,4 @@
-﻿namespace Chimera.Authentication.Api.Models
+﻿namespace Chimera.Authentication.Contracts
 {
     public class UserContract
     {

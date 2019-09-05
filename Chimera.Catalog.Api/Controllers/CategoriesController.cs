@@ -3,15 +3,14 @@ using Chimera.Catalog.Api.Models;
 using Chimera.Catalog.Api.Models.Requests;
 using Chimera.Catalog.Api.Models.Responses;
 using Chimera.Catalog.Entities;
-using Chimera.Catalog.ServiceLayers;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System;
 using System.Collections.Generic;
-using ZenProgramming.Chakra.Core.Data;
 using ZenProgramming.Chakra.Core.Extensions;
 
 namespace Chimera.Catalog.Api.Controllers
 {
+    [Authorize]
     [Route("api/Categories")]
     public class CategoriesController : ApiControllerBase
     {

@@ -3,9 +3,9 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
     <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
-    <Version>1.0.4</Version>
-    <FileVersion>1.0.4</FileVersion>
-    <AssemblyVersion>1.0.4</AssemblyVersion>
+    <Version>1.0.5</Version>
+    <FileVersion>1.0.5</FileVersion>
+    <AssemblyVersion>1.0.5</AssemblyVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -14,10 +14,23 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Chimera.Authentication.Clients\Chimera.Authentication.Clients.csproj" />
     <ProjectReference Include="..\Chimera.Catalog.Mocks\Chimera.Catalog.Mocks.csproj" />
     <ProjectReference Include="..\Chimera.Catalog.MongoDb\Chimera.Catalog.MongoDb.fsproj" />
     <ProjectReference Include="..\Chimera.Catalog\Chimera.Catalog.csproj" />
     <ProjectReference Include="..\Common.MongoDb\Common.Providers.MongoDb.fsproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="appsettings.Mongo.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="appsettings.Development.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="appsettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
 </Project>
