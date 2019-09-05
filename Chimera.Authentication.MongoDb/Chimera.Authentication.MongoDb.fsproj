@@ -13,17 +13,14 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Chimera.Authentication\Chimera.Authentication.csproj" />
+    <ProjectReference Include="..\Common.MongoDb\Common.Providers.MongoDb.fsproj" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Chakra.Core.MongoDb" Version="2.0.11" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MongoDbTransaction.fs" />
-    <Compile Include="MongoDbOptions.fs" />
-    <Compile Include="MongoDbDataSession.fs" />
-    <Compile Include="MongoDbRepository.fs" />
-    <Compile Include="Repositories\MongoDbUserRepository.fs" />    
+    <Compile Include="MongoDbUserRepository.fs" />    
   </ItemGroup>
 
 </Project>
