@@ -39,7 +39,7 @@ namespace Chimera.Catalog.Api.Controllers
         [ProducesResponseType(200, Type = typeof(List<CategoryContract>))]
         public IActionResult Fetch([FromBody]FetchPagedRequest request)
         {
-            //Ipotesi: https://locahost:12345/api/Categories/Fetch?startRowIndex=0&maximumRows=10
+            //Alternativa in GET: https://locahost:12345/api/Categories/Fetch?startRowIndex=0&maximumRows=10
 
             //Validazione della request
             if (request == null)

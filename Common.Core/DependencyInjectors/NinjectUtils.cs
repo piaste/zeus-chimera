@@ -1,7 +1,7 @@
 ﻿using System;
 using Ninject;
 
-namespace ZenProgramming.Chimera.Common.Contracts.DependencyInjectors
+namespace Common.Core.DependencyInjectors
 {
     public class NinjectUtils
     {
