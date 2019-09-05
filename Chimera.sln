@@ -30,7 +30,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Chimera.Catalog", "Chimera.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Chimera.Catalog.Mocks", "Chimera.Catalog.Mocks\Chimera.Catalog.Mocks.csproj", "{E6493D00-BF49-4386-B55A-595617AA503A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Chimera.Catalog.MongoDb", "Chimera.Catalog.MongoDb\Chimera.Catalog.MongoDb.csproj", "{BBAB4DD6-749B-4755-BC10-ACBF39982169}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Chimera.Catalog.MongoDb", "Chimera.Catalog.MongoDb\Chimera.Catalog.MongoDb.fsproj", "{BBAB4DD6-749B-4755-BC10-ACBF39982169}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataProviders", "DataProviders", "{6EDFD26C-96C1-41FC-A724-062E790F7FE2}"
 EndProject
