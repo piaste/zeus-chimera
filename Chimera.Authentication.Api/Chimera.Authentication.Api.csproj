@@ -13,7 +13,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Chimera.Authentication.EntityFramework\Chimera.Authentication.EntityFramework.csproj" />
     <ProjectReference Include="..\Chimera.Authentication.Mocks\Chimera.Authentication.Mocks.csproj" />
-    <ProjectReference Include="..\Chimera.Authentication.MongoDb\Chimera.Authentication.MongoDb.csproj" />
+    <ProjectReference Include="..\Chimera.Authentication.MongoDb\Chimera.Authentication.MongoDb.fsproj" />
     <ProjectReference Include="..\Chimera.Authentication\Chimera.Authentication.csproj" />
   </ItemGroup>
 
