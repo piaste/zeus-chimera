@@ -1,11 +1,11 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http.Internal;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Reflection;
 using ZenProgramming.Chakra.Core.Diagnostic;
+using ZenProgramming.Chimera.Catalog.Api.Middlewares.BasicByPass;
 
 namespace Falck.Pulsar.Catalog.Api
 {
@@ -72,14 +72,13 @@ namespace Falck.Pulsar.Catalog.Api
                         .AllowCredentials());
             });
 
-            ////Add Basic and ApiKey authentication
-            //services
-            //    .AddAuthentication(options =>
-            //    {
-            //        options.DefaultScheme = BasicBypassAuthenticationOptions.Scheme;
-            //    })
-            //    .AddBasicByPassAuthentication()
-            //    .AddApiKeyBypassAuthentication();
+            //Add Basic and ApiKey authentication
+            services
+                .AddAuthentication(options =>
+                {
+                    options.DefaultScheme = BasicByPassAuthenticationOptions.Scheme;
+                })
+                .AddBasicByPassAuthentication();
 
             //Add MVC services
             services.AddMvc();
@@ -128,8 +127,8 @@ namespace Falck.Pulsar.Catalog.Api
             //Enable CORS
             app.UseCors("CorsPolicy");
 
-            ////Enable autentication
-            //app.UseAuthentication();
+            //Enable autentication
+            app.UseAuthentication();
 
             ////Enable swagger 
             //app.UseSwagger();
@@ -140,11 +139,11 @@ namespace Falck.Pulsar.Catalog.Api
             //    c.SwaggerEndpoint("v1/swagger.json", $"{ApplicationName} {ApplicationVersion}");
             //});
 
-            //Enable "rewind" (re-read) of body request
-            app.Use(async (context, next) => {
-                context.Request.EnableRewind();
-                await next();
-            });
+            ////Enable "rewind" (re-read) of body request
+            //app.Use(async (context, next) => {
+            //    context.Request.EnableRewind();
+            //    await next();
+            //});
 
             //Enable MVC
             app.UseMvc();

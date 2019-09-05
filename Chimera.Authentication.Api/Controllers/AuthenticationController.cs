@@ -1,5 +1,5 @@
-﻿using Chimera.Authentication.Api.Models;
-using Chimera.Authentication.Api.Models.Requests;
+﻿using Chimera.Authentication.Contracts;
+using Chimera.Authentication.Contracts.Requests;
 using Chimera.Authentication.Entities;
 using Chimera.Authentication.ServiceLayers;
 using Microsoft.AspNetCore.Authorization;

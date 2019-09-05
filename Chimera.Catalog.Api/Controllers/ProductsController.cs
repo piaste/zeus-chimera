@@ -4,7 +4,6 @@ using Chimera.Catalog.Api.Models.Requests;
 using Chimera.Catalog.Api.Models.Responses;
 using Chimera.Catalog.Entities;
 using Microsoft.AspNetCore.Mvc;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using ZenProgramming.Chakra.Core.Extensions;

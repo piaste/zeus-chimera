@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Chimera.Authentication.Api.Models.Requests
+namespace Chimera.Authentication.Contracts.Requests
 {
     public class SignInRequest
     {

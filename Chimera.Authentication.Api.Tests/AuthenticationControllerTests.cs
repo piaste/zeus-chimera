@@ -1,6 +1,6 @@
 using Chimera.Authentication.Api.Controllers;
-using Chimera.Authentication.Api.Models;
-using Chimera.Authentication.Api.Models.Requests;
+using Chimera.Authentication.Contracts;
+using Chimera.Authentication.Contracts.Requests;
 using Chimera.Authentication.Mocks.Common;
 using Common.Api.Tests;
 using Common.Core.Identities;
