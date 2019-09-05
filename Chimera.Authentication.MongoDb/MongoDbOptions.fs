@@ -15,6 +15,14 @@ type MongoDbOptions = {
     Database : string
 }
 with
+  static member Default = 
+    {   Username = "" 
+        Password = ""
+        Host = "localhost"
+        Port = Nullable<_>()
+        Database = "catalog"
+    }
+
   member this.ConnectionString = 
     let u = UriBuilder()
     u.Scheme <- "mongodb"

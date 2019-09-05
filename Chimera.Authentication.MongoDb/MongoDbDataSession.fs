@@ -18,8 +18,12 @@ type IMongoDbDataSession =
 
     abstract Database : IMongoDatabase
 
-
 type MongoDbDataSession(options : MongoDbOptions) = 
+
+    /// Public constructor for the DI framework
+    new() = new MongoDbDataSession(MongoDbOptions.Default)
+
+    member val Options = options
 
     interface IMongoDbDataSession with
 
