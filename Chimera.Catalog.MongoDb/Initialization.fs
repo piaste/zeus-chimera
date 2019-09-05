@@ -9,17 +9,16 @@ open Common.Providers.MongoDb
 /// Read all MongoDb options from settings
 let ReadOptions (settings : CatalogSettings) = 
 
-    let parse connString =
+    let parse (connString : ConnectionStringSettings) =
         try 
-            let uri = Uri connString
+            let uri = Uri connString.Url
     
             Ok {
                 Host = uri.Host 
                 Port = Nullable uri.Port
-                Username = uri.UserInfo.Split(':').[0]
-                Password = uri.UserInfo.Split(':').[1]
-                Database = "Catalog"
-               
+                Username = connString.Username
+                Password = connString.Password
+                Database = "Catalog"               
             }
 
         with ex -> Error ex
@@ -28,7 +27,7 @@ let ReadOptions (settings : CatalogSettings) =
         if String.Equals(settings.Storage.ProviderName, "Mongo", StringComparison.InvariantCultureIgnoreCase) then
 
             for connString in settings.ConnectionStrings do
-                match parse connString.ConnectionString with
+                match parse connString with
                 | Ok options ->
                     // Correctly configured
                     yield connString.Name, options

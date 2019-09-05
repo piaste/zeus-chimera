@@ -21,5 +21,9 @@
     <Compile Include="MongoDbDataSession.fs" />
     <Compile Include="MongoDbRepository.fs" />
   </ItemGroup>
+  
+  <ItemGroup>
+    <ProjectReference Include="..\Common.Core\Common.Core.csproj" />
+  </ItemGroup>
 
 </Project>

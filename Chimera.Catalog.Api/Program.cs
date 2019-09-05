@@ -36,9 +36,11 @@ namespace Chimera.Catalog.Api
                 { "Mock", SessionFactory.RegisterDefaultDataSession<MockupDataSession> },
                 { "Mongo", () => {
 
-                    var options = Initialization.ReadOptions(ConfigurationFactory<CatalogSettings>.Instance);
-                    
-                    // NInjectUtils..RegisterSingleton(options);
+                    var configuredOptions = Initialization.ReadOptions(ConfigurationFactory<CatalogSettings>.Instance);
+
+                    if (configuredOptions.TryGetValue("Catalog", out var options)) {
+                        NinjectUtils.RegisterInstance<MongoDbOptions, MongoDbOptions>(options);
+                    }
 
                     SessionFactory.RegisterDefaultDataSession<MongoDbDataSession>();
                     }

@@ -15,13 +15,13 @@ type MongoDbOptions = {
     Database : string
 }
 with
-  /// Default: connects to localhost and opens "catalog"
+  /// Default: connects to localhost and opens "database"
   static member Default = 
     {   Username = "" 
         Password = ""
         Host = "localhost"
         Port = Nullable<_>()
-        Database = "catalog"
+        Database = "database"
     }
 
   member this.ConnectionString = 
