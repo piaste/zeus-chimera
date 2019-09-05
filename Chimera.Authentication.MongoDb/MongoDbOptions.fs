@@ -15,6 +15,7 @@ type MongoDbOptions = {
     Database : string
 }
 with
+  /// Default: connects to localhost and opens "catalog"
   static member Default = 
     {   Username = "" 
         Password = ""

@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Chimera.Authentication.Mocks.Common;
+using Chimera.Authentication.MongoDb;
 using Falck.Pulsar.Catalog.Api;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
@@ -19,10 +20,9 @@ namespace Chimera.Authentication.Api
     {
         public static void Main(string[] args)
         {
-            SessionFactory.RegisterDefaultDataSession<MockupDataSession>();
+            SessionFactory.RegisterDefaultDataSession<MongoDbDataSession>();
             ScenarioFactory.Initialize(new SimpleAuthenticationScenario());
-
-
+            
             CreateWebHostBuilder(args).Build().Run();
         }
 

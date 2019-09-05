@@ -20,9 +20,10 @@ type IMongoDbDataSession =
 
 type MongoDbDataSession(options : MongoDbOptions) = 
 
-    /// Public constructor for the DI framework
+    /// Public parameterless constructor for the DI framework
     new() = new MongoDbDataSession(MongoDbOptions.Default)
 
+    /// Public options getter/setter for the DI framework
     member val Options = options
 
     interface IMongoDbDataSession with
