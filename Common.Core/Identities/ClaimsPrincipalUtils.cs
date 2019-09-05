@@ -30,6 +30,10 @@ namespace Common.Core.Identities
             //Create identity claims using provided data
             ClaimsIdentity claimsIdentity = new ClaimsIdentity(authenticationType);
             claimsIdentity.AddClaim(new Claim(ClaimTypes.Name, identity.UserName));
+            claimsIdentity.AddClaim(new Claim(ClaimTypes.GivenName, identity.FirstName));
+            claimsIdentity.AddClaim(new Claim(ClaimTypes.Surname, identity.LastName));
+            claimsIdentity.AddClaim(new Claim(ClaimTypes.Email, identity.Email));
+            claimsIdentity.AddClaim(new Claim("IsAdministrator", identity.IsAdministrator.ToString()));
 
             //With authorization header, create claims
             if (!string.IsNullOrEmpty(authorizationHeader))

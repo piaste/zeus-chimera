@@ -6,6 +6,7 @@ using System.Text.Encodings.Web;
 using System.Threading.Tasks;
 using Chimera.Authentication.Clients;
 using Chimera.Authentication.Contracts.Requests;
+using Common.Core.Identities;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
@@ -104,13 +105,21 @@ namespace ZenProgramming.Chimera.Catalog.Api.Middlewares.BasicByPass
             if (!response.Response.IsSuccessStatusCode)
                 return AuthenticateResult.Fail("Invalid credentials");
 
-            //Altrimenti creo un principal generico
-            var identity = new GenericIdentity(response.Data.UserName);
-            var principal = new GenericPrincipal(identity, new string[] { });
+            //Create identity claims using provided data
+            ClaimsIdentity claimsIdentity = new ClaimsIdentity("Basic");
+            claimsIdentity.AddClaim(new Claim(ClaimTypes.Name, response.Data.UserName));
+            claimsIdentity.AddClaim(new Claim(ClaimTypes.GivenName, response.Data.FirstName));
+            claimsIdentity.AddClaim(new Claim(ClaimTypes.Surname, response.Data.LastName));
+            claimsIdentity.AddClaim(new Claim(ClaimTypes.Email, response.Data.Email));
+            claimsIdentity.AddClaim(new Claim("IsAdministrator", response.Data.IsAdministrator.ToString()));
+
+            //OLD VERSION
+            //var identity = new GenericIdentity(response.Data.UserName);
+            //var principal = new GenericPrincipal(identity, new string[] { });
 
             //Creo il ticket di autenticazione
             var authTicket = new AuthenticationTicket(
-                new ClaimsPrincipal(principal),
+                new ClaimsPrincipal(claimsIdentity),
                 new AuthenticationProperties(),
                 Scheme.Name);
 

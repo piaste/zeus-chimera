@@ -6,6 +6,7 @@ using Chimera.Catalog.Entities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
+using System.Linq;
 using ZenProgramming.Chakra.Core.Extensions;
 
 namespace Chimera.Catalog.Api.Controllers
@@ -47,6 +48,15 @@ namespace Chimera.Catalog.Api.Controllers
             //Validazione del modello di request
             if (!ModelState.IsValid)
                 return BadRequest();
+
+            //Se l'utente non è amministratore non può richiedere più di 10 record alla volta
+            if (User.Claims.Single(e => e.Type == "IsAdministrator").Value != "True" &&
+                request.MaximumRows > 10)
+            {
+                //Inserimento di BadRequest
+                ModelState.AddModelError("", "You cannot request more then 10 records");
+                return BadRequest(ModelState);
+            }
 
             //Invoke del layer applicativo
             IList<Category> entities =  CatalogLayer.FetchCategories(

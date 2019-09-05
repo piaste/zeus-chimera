@@ -1,6 +1,7 @@
 ﻿using Chakra.Core.Configurations;
 using Chimera.Authentication.Clients;
 using Chimera.Authentication.Clients.Http;
+using Chimera.Authentication.Clients.Mocks;
 using Chimera.Catalog.Mocks.Common;
 using Chimera.Catalog.Settings;
 using Falck.Pulsar.Catalog.Api;
@@ -35,12 +36,21 @@ namespace Chimera.Catalog.Api
                 //{ "Mongo", SessionFactory.RegisterDefaultDataSession<MongoDbDataSession<CatalogMongoOptions>> }
             });
 
-            //Configuro il provider per chiamate Http dei microservices
-            HttpAuthenticationClient.BaseUrl = ConfigurationFactory<CatalogSettings>.
-                Instance.Microservices.Authentication.Url;
-
-            //Registrazione della dipendenza
-            NinjectUtils.Register<IAuthenticationClient, HttpAuthenticationClient>();
+            //Configuro il provider per chiamate Http/Mock dei microservices
+            SettingsUtils.Switch(ConfigurationFactory<CatalogSettings>.Instance.Microservices.Authentication.ProviderName, new Dictionary<string, Action>
+            {
+                {
+                    "Mock", NinjectUtils.Register<IAuthenticationClient, MockAuthenticationClient>
+                },
+                {
+                    "Http", () =>
+                    {
+                        NinjectUtils.Register<IAuthenticationClient, HttpAuthenticationClient>();
+                        HttpAuthenticationClient.BaseUrl = ConfigurationFactory<CatalogSettings>.
+                            Instance.Microservices.Authentication.Url;
+                    }                
+                }
+            });
 
             //Avvio pipeline ASP.NET
             CreateWebHostBuilder(args).Build().Run();
