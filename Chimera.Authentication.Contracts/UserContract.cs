@@ -1,6 +1,8 @@
-﻿namespace Chimera.Authentication.Contracts
+﻿using Common.Contracts.Identities;
+
+namespace Chimera.Authentication.Contracts
 {
-    public class UserContract
+    public class UserContract: IGenericIdentity
     {
         public string FirstName { get; set; }
 

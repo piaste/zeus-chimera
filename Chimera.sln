@@ -50,6 +50,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chimera.Authentication.Cont
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chimera.Authentication.Clients", "Chimera.Authentication.Clients\Chimera.Authentication.Clients.csproj", "{17EBD198-E312-4AFF-8C58-600E2EE44A0E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common.Contracts", "Common.Contracts\Common.Contracts.csproj", "{51C54088-1373-4FBE-B437-3CFFE0933211}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -240,6 +242,18 @@ Global
 		{17EBD198-E312-4AFF-8C58-600E2EE44A0E}.Release|x64.Build.0 = Release|Any CPU
 		{17EBD198-E312-4AFF-8C58-600E2EE44A0E}.Release|x86.ActiveCfg = Release|Any CPU
 		{17EBD198-E312-4AFF-8C58-600E2EE44A0E}.Release|x86.Build.0 = Release|Any CPU
+		{51C54088-1373-4FBE-B437-3CFFE0933211}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51C54088-1373-4FBE-B437-3CFFE0933211}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51C54088-1373-4FBE-B437-3CFFE0933211}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{51C54088-1373-4FBE-B437-3CFFE0933211}.Debug|x64.Build.0 = Debug|Any CPU
+		{51C54088-1373-4FBE-B437-3CFFE0933211}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{51C54088-1373-4FBE-B437-3CFFE0933211}.Debug|x86.Build.0 = Debug|Any CPU
+		{51C54088-1373-4FBE-B437-3CFFE0933211}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51C54088-1373-4FBE-B437-3CFFE0933211}.Release|Any CPU.Build.0 = Release|Any CPU
+		{51C54088-1373-4FBE-B437-3CFFE0933211}.Release|x64.ActiveCfg = Release|Any CPU
+		{51C54088-1373-4FBE-B437-3CFFE0933211}.Release|x64.Build.0 = Release|Any CPU
+		{51C54088-1373-4FBE-B437-3CFFE0933211}.Release|x86.ActiveCfg = Release|Any CPU
+		{51C54088-1373-4FBE-B437-3CFFE0933211}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -262,6 +276,7 @@ Global
 		{BBCD5246-B354-482A-B0CF-29AA09282CE9} = {793F6BA9-ACF2-4B29-89F7-0A2A11156065}
 		{3C0EDC85-423C-409E-83BF-B4A8FB2CE9A0} = {B0B3AC07-EF61-4F9E-92A1-31B4936B94F3}
 		{17EBD198-E312-4AFF-8C58-600E2EE44A0E} = {B0B3AC07-EF61-4F9E-92A1-31B4936B94F3}
+		{51C54088-1373-4FBE-B437-3CFFE0933211} = {793F6BA9-ACF2-4B29-89F7-0A2A11156065}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8D9974B6-4A37-4D8E-A712-58E74FF5E544}

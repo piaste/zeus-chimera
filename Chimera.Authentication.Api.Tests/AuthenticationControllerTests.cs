@@ -3,7 +3,7 @@ using Chimera.Authentication.Contracts;
 using Chimera.Authentication.Contracts.Requests;
 using Chimera.Authentication.Mocks.Common;
 using Common.Api.Tests;
-using Common.Core.Identities;
+using Common.Contracts.Identities;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 using Xunit;

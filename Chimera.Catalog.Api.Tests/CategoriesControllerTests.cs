@@ -1,22 +1,35 @@
-using Chimera.Authentication.Contracts;
+using Chimera.Authentication.Clients;
+using Chimera.Authentication.Clients.Mocks;
 using Chimera.Catalog.Api.Controllers;
 using Chimera.Catalog.Api.Models;
-using Chimera.Catalog.Api.Models.Requests;
-using Chimera.Catalog.Api.Models.Responses;
 using Chimera.Catalog.Mocks.Common;
 using Common.Api.Tests;
-using Common.Core.Identities;
+using Common.Contracts.Identities;
+using Common.Contracts.Requests;
+using Common.Contracts.Responses;
+using Common.Core.DependencyInjectors;
 using System.Collections.Generic;
+using System.Linq;
 using Xunit;
+using ZenProgramming.Chakra.Core.Extensions;
 
 namespace Chimera.Catalog.Api.Tests
 {
     public class CategoriesControllerTests: ApiControllerTestsBase<CategoriesController, SimpleCatalogScenario>
     {
+        protected override void OnInitialize()
+        {
+            //Iniezione dei contratti nel mock IAuthenticationClient
+            NinjectUtils.Register<IAuthenticationClient, MockAuthenticationClient>();
+        }
+
         protected override IGenericIdentity GetIdentity()
         {
-            //Nessuna autenticazione
-            return null;
+            var client = NinjectUtils.Resolve<IAuthenticationClient>();
+            Scenario.Users.Each(r => (client as MockAuthenticationClient).Users.Add(r));
+
+            //Selezione del primo utente di scenario
+            return Scenario.Users.First();
         }
 
         [Fact]

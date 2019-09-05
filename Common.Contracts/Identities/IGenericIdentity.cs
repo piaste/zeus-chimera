@@ -1,4 +1,4 @@
-﻿namespace Common.Core.Identities
+﻿namespace Common.Contracts.Identities
 {
     public interface IGenericIdentity
     {

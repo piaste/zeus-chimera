@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Common.Contracts.Identities;
+using System;
 using System.Security.Claims;
 
 namespace Common.Core.Identities

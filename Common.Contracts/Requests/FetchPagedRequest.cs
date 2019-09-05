@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Chimera.Catalog.Api.Models.Requests
+namespace Common.Contracts.Requests
 {
     public class FetchPagedRequest
     {
