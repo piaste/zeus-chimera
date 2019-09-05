@@ -4,6 +4,8 @@ using Chimera.Authentication.Clients.Http;
 using Chimera.Authentication.Clients.Mocks;
 using Chimera.Catalog.Mocks.Common;
 using Chimera.Catalog.Settings;
+using Common.Core.DependencyInjectors;
+using Common.Core.Diagnostics;
 using Falck.Pulsar.Catalog.Api;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
@@ -13,6 +15,7 @@ using ZenProgramming.Chakra.Core.Configurations.Utils;
 using ZenProgramming.Chakra.Core.Data;
 using ZenProgramming.Chakra.Core.Data.Mockups;
 using ZenProgramming.Chakra.Core.Data.Mockups.Scenarios;
+using ZenProgramming.Chakra.Core.Diagnostic;
 using ZenProgramming.Chimera.Common.Contracts.DependencyInjectors;
 using Common.Providers.MongoDb;
 using Chimera.Catalog.MongoDb;
@@ -23,6 +26,10 @@ namespace Chimera.Catalog.Api
     {
         public static void Main(string[] args)
         {
+            //Configurazione del tracer
+            Tracer.Append(typeof(SerilogTracer));
+            Tracer.Info($"[Settings] Working on environment '{ConfigurationFactory<CatalogSettings>.Instance.EnvironmentName}' (from configuration factory)");
+
             //Select provider for data storage
             SettingsUtils.Switch(ConfigurationFactory<CatalogSettings>.Instance.Storage.ScenarioName, new Dictionary<string, Action>
             {

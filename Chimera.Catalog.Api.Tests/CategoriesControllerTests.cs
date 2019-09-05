@@ -1,3 +1,4 @@
+using Chimera.Authentication.Contracts;
 using Chimera.Catalog.Api.Controllers;
 using Chimera.Catalog.Api.Models;
 using Chimera.Catalog.Api.Models.Requests;

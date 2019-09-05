@@ -2,7 +2,7 @@
 using Ninject;
 using Ninject.Syntax;
 
-namespace ZenProgramming.Chimera.Common.Contracts.DependencyInjectors
+namespace Common.Core.DependencyInjectors
 {
     public class NinjectUtils
     {

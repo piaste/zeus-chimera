@@ -1,16 +1,14 @@
 ﻿using System;
 using System.Security.Claims;
-using System.Security.Principal;
 using System.Text;
 using System.Text.Encodings.Web;
 using System.Threading.Tasks;
 using Chimera.Authentication.Clients;
 using Chimera.Authentication.Contracts.Requests;
-using Common.Core.Identities;
+using Common.Core.DependencyInjectors;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using ZenProgramming.Chimera.Common.Contracts.DependencyInjectors;
 
 namespace ZenProgramming.Chimera.Catalog.Api.Middlewares.BasicByPass
 {
