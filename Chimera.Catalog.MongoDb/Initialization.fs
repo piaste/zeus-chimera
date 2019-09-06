@@ -16,7 +16,7 @@ let ReadOptions (settings : CatalogSettings) =
                 Port = Nullable 27017
                 Username = connString.Username
                 Password = connString.Password
-                Database = "Catalog"               
+                Database = "chimera-catalog" // Should this be in settings?
             }
 
         with ex -> Error ex
