@@ -18,6 +18,7 @@ using ZenProgramming.Chakra.Core.Data.Mockups.Scenarios;
 using ZenProgramming.Chakra.Core.Diagnostic;
 using Common.Providers.MongoDb;
 using Chimera.Catalog.MongoDb;
+using Chimera.Catalog.Entities;
 
 namespace Chimera.Catalog.Api
 {

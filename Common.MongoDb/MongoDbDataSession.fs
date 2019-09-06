@@ -4,11 +4,8 @@ open ZenProgramming.Chakra.Core.Data
 open MongoDB.Driver
 open ZenProgramming.Chakra.Core.Data.Repositories.Helpers
 open Common.Core.DependencyInjectors
+open ZenProgramming.Chakra.Core.Entities
 
-type IMongoDbDataSession =
-    inherit IDataSession
-
-    abstract Database : IMongoDatabase
 
 type MongoDbDataSession(options : MongoDbOptions) = 
 
@@ -27,9 +24,10 @@ type MongoDbDataSession(options : MongoDbOptions) =
 
         member this.As<'TOutput when 'TOutput : not struct >() = box this :?> 'TOutput
 
-        member this.BeginTransaction() = raise (System.NotImplementedException())
-        member this.Transaction = raise (System.NotImplementedException())
+        member this.BeginTransaction() = Unchecked.defaultof<_> // WIP
+        member this.Transaction = Unchecked.defaultof<_> // WIP
 
         member this.Dispose() = ()
-        member this.ResolveRepository() = RepositoryHelper.Resolve this
+        member this.ResolveRepository() = 
+            RepositoryHelper.Resolve<_, IMongoDbRepository> this
         

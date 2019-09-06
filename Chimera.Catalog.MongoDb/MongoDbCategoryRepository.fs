@@ -5,10 +5,11 @@ open Chimera.Catalog.Entities
 open System.ComponentModel.DataAnnotations
 open ZenProgramming.Chimera.Catalog.Data.Repositories
 open System.Collections.Generic
+open ZenProgramming.Chakra.Core.Data.Repositories.Attributes
 
 /// <summary> Stores Categorys in a MongoDB database</summary>
 /// <param name="db">The MongoDB Database where this should be saved</param>
-type MongoDbCategoryRepository(dataSession) = 
+type [<Repository>] MongoDbCategoryRepository(dataSession) = 
 
     inherit MongoDbRepository<Category>( dataSession
                                    , MongoDbCategoryRepository.ValidateCategory

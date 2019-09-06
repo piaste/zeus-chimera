@@ -11,11 +11,9 @@ let ReadOptions (settings : CatalogSettings) =
 
     let parse (connString : ConnectionStringSettings) =
         try 
-            let uri = Uri connString.Url
-    
             Ok {
-                Host = uri.Host 
-                Port = Nullable uri.Port
+                Host = connString.Url
+                Port = Nullable 27017
                 Username = connString.Username
                 Password = connString.Password
                 Database = "Catalog"               

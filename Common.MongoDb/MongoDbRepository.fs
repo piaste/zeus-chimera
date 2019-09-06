@@ -8,7 +8,15 @@ open ZenProgramming.Chakra.Core.Entities
 open MongoDB.Driver
 open Common.Providers.MongoDb.Transactions
 open ZenProgramming.Chakra.Core.Data
+open System.Linq.Expressions
 
+/// Helper function to write LINQ expressions inline
+type private Helpers = 
+    /// Converts a regular function passed inline into a LINQ expression
+    static member LinqExpression<'T, 'TResult>(e: Expression<Func<'T, 'TResult>>) = e
+
+    /// Mongo throws if passed a null filter. This helper replaces it with an "any" filter
+    static member DefaultFilter(e : Expression<Func<'T, bool>>) = if isNull e then Helpers.LinqExpression(fun _ -> true) else e
 
 /// Stores an entity inside a MongoDb database.
 ///
@@ -35,34 +43,35 @@ type MongoDbRepository<'TEntity
     let db = dataSession.Database    
     let entities () = db.GetCollection(collectionName)
         
-    // TODO : test the fake transaction implementation
+    // WIP : test the fake transaction implementation
     let transaction : Transaction option = None
-       
-    
+
     /// Casts this to IRepository
     member this.AsRepository = (this :> IRepository<'TEntity>)
+  
+    // Mark as a Mongo repo
+    interface IMongoDbRepository 
 
-
-
-
+    interface IRepository with
+        member this.Dispose() = 
+            // By default rolls back transaction if not committed
+            transaction |> Option.iter (fun t -> (t :> IDataTransaction).Rollback())
+            dataSession.Dispose()
+  
     // Implement the repo pattern
     interface IRepository<'TEntity> with
-        
-        member this.Count(filterExpression) = 
-            let longCount = entities().CountDocuments(filterExpression)
+              
+        member this.Count(filterExpression) =             
+            let longCount = entities().CountDocuments(Helpers.DefaultFilter filterExpression)
             if longCount > (int64 Int32.MaxValue) then -1 else int longCount
 
         member this.Delete(entity) = 
             entities().DeleteOne(fun (e : 'TEntity) -> entity.GetId() = e.GetId())
             |> ignore
                     
-        member this.Dispose() = 
-            // By default rolls back transaction if not committed
-            transaction |> Option.iter (fun t -> (t :> IDataTransaction).Rollback())
-
         member this.Fetch(filterExpression, startRowIndex, maximumRows, sortExpression, isDescending) = 
 
-            let filteredEntities = entities().Find(filterExpression)
+            let filteredEntities = entities().Find(Helpers.DefaultFilter filterExpression)
                     
             let sort things = 
                 if isDescending then IFindFluentExtensions.SortByDescending<_, _>(things, sortExpression) 
@@ -75,8 +84,8 @@ type MongoDbRepository<'TEntity
             boundedEntities.ToList() :> IList<_>
             
 
-        member this.GetSingle(expression) = 
-            (this :> IRepository<_>).Fetch(expression, Nullable 0 , Nullable 1, (fun _ -> null), false)
+        member this.GetSingle(filterExpression) = 
+            (this :> IRepository<_>).Fetch(Helpers.DefaultFilter filterExpression, Nullable 0 , Nullable 1, (fun _ -> null), false)
             |> Seq.tryHead
             |> Option.defaultValue null
 

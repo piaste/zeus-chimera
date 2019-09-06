@@ -16,6 +16,7 @@
   </ItemGroup>
   
   <ItemGroup>
+    <Compile Include="Interfaces.fs" />
     <Compile Include="MongoDbTransaction.fs" />
     <Compile Include="MongoDbOptions.fs" />
     <Compile Include="MongoDbDataSession.fs" />

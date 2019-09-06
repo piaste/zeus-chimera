@@ -4,10 +4,11 @@ open Common.Providers.MongoDb
 open Chimera.Catalog.Entities
 open System.ComponentModel.DataAnnotations
 open ZenProgramming.Chimera.Catalog.Data.Repositories
+open ZenProgramming.Chakra.Core.Data.Repositories.Attributes
 
 /// <summary> Stores Products in a MongoDB database</summary>
 /// <param name="db">The MongoDB Database where this should be saved</param>
-type MongoDbProductRepository(dataSession) = 
+type [<Repository>] MongoDbProductRepository(dataSession) = 
 
     inherit MongoDbRepository<Product>( dataSession
                                       , MongoDbProductRepository.ValidateProduct

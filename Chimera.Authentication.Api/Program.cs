@@ -34,7 +34,18 @@ namespace Chimera.Authentication.Api
             SettingsUtils.Switch(ConfigurationFactory<AuthenticationSettings>.Instance.Storage.ProviderName, new Dictionary<string, Action>
             {
                 { "Mock", SessionFactory.RegisterDefaultDataSession<MockupDataSession> },
-                //{ "Mongo", SessionFactory.RegisterDefaultDataSession<MongoDbDataSession<CatalogMongoOptions>> }
+                { "Mongo", () => {
+
+                    //var configuredOptions = Initialization.ReadOptions(ConfigurationFactory<AuthenticationSettings>.Instance);
+
+                    //if (configuredOptions.TryGetValue("Catalog", out var options)) {
+                    //    NinjectUtils.RegisterInstance<MongoDbOptions, MongoDbOptions>(options);
+                    //}
+
+                    //SessionFactory.RegisterDefaultDataSession<MongoDbDataSession<Category>>();
+                    //SessionFactory.RegisterDefaultDataSession<MongoDbDataSession<Product>>();
+                    }
+                }
             });
 
             //Inizializzazione ASP.NET
